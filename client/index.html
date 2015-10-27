@@ -1,13 +1,44 @@
 <head>
   <title>Parlote</title>
 </head>
+
 <body>
-  <div id="main">
-    {{> loginButtons align="right"}}<br/>
+  <div id="main" class="container">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <a class="brand" href="#">Parlote</a>
+        <ul class="nav">
+          <li><a href="https://github.com/a-magdy/parlote" target="_blank">Source</a></li>
+          <li><a href="http://parlote.xyz">Contact</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li><a href="http://www.meteor.com" target="_blank">Meteor Release {{release}}</a></li>
+          <li><a>{{> loginButtons align="right"}} </a></li>
+        </ul>
+      </div>
+    </div>
 
-    <h1>Parlote</h1>
-
-    {{> input}}
-    {{> messages}}
+    {{#if currentUser}}
+    <div class="row-fluid">
+      <div class="span12 well">
+        {{> input}}
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span8 well">
+        {{> messages}}
+      </div>
+      <div class="span4 well">
+        {{> rooms}}
+      </div>
+    </div>
+    {{else}}
+    <div class="hero-unit">
+      <h1>Welcome to Parlote</h1>
+      <p>
+        Please login!
+      </p>
+    </div>
+    {{/if}}
   </div>
 </body>

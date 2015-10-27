@@ -4,19 +4,21 @@ Template.input.events({
 
     var loggedInUser = Meteor.user();
 
-    // Get logged in user name or Anonymous.
-    if (loggedInUser) {
-      var name = loggedInUser.profile.name || loggedInUser.services.github.username;
-    } else {
-      var name = "Anonymous";
+    if(!loggedInUser)
+    {
+      return;
     }
 
     var message = document.getElementById('message');
 
     if (message.value !== '') {
+
+      var username = (loggedInUser.profile && loggedInUser.profile.name) || (loggedInUser.username);
+
       Messages.insert({
         userId: Meteor.userId(),
-        name: name,
+        name:username,
+        room: Session.get('roomName'),
         message: message.value,
         time: Date.now()
       })

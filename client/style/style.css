@@ -1,4 +1,8 @@
 body{
+  padding: 60px;
+}
+
+/*body{
   background: #eee;
   text-align: center;
   padding: 0 25px;
@@ -90,4 +94,4 @@ html {
 
 .login-buttons-dropdown-align-right {
     float: right;
-}
+}*/
