@@ -6,7 +6,7 @@ angular.module('parlote').run(function($rootScope, $state) {
   })
 });
 
-angular.module('parlote').config(function($urlRouterProvider, $stateProvider, $locationProvider) {
+angular.module('parlote').config(['$urlRouterProvider', '$stateProvider', '$locationProvider', function($urlRouterProvider, $stateProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
@@ -32,4 +32,4 @@ angular.module('parlote').config(function($urlRouterProvider, $stateProvider, $l
     })
 
   $urlRouterProvider.otherwise("/rooms");
-});
+}]);
