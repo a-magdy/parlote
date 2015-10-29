@@ -1,46 +1,60 @@
 Messages.allow({
-  insert: function(userId){
+  insert: function(userId) {
     return userId !== null;
   }
 });
 
 Messages.deny({
-  insert: function(userId){
+  insert: function(userId) {
     return userId === null;
   },
-  update: function(){
+  update: function() {
     return true;
   },
-  remove: function(){
+  remove: function() {
     return true;
   }
 });
 
-Meteor.publish("messages", function(){
-  return Messages.find();
+Meteor.publish("messages", function(roomId) {
+  return Messages.find({
+    room: roomId
+  });
 });
 
 //==========================================
 //==========================================
 
 Rooms.allow({
-  insert: function(userId){
+  insert: function(userId) {
     return userId !== null;
   }
 });
 
 Messages.deny({
-  insert: function(userId){
+  insert: function(userId) {
     return userId === null;
   },
-  update: function(){
+  update: function() {
     return true;
   },
-  remove: function(){
+  remove: function() {
     return true;
   }
 });
 
-Meteor.publish("rooms", function(){
+Meteor.publish("rooms", function() {
   return Rooms.find();
+});
+
+//==========================================
+//==========================================
+
+Meteor.publish("users", function() {
+  return Meteor.users.find({}, {
+    fields: {
+      emails: 1,
+      profile: 1
+    }
+  });
 });

@@ -16,7 +16,6 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-insecure                # Allow all DB writes from clients (for prototyping)
 accounts-github
 accounts-google
 accounts-facebook
@@ -24,7 +23,6 @@ accounts-twitter
 accounts-base
 underscore
 underscorestring:underscore.string
-accounts-ui
 fourseven:scss
 email
 anti:fake
@@ -32,3 +30,8 @@ dburles:factory
 momentjs:moment
 accounts-password
 bootstrap
+angular
+angularui:angular-ui-router
+accounts-ui-unstyled
+accounts-ui
+urigo:angular-blaze-template

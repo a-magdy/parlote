@@ -1,0 +1,7 @@
+<div ng-controller="RoomsController">
+  <div class="rooms" ng-repeat="room in rooms">
+  <li ng-style="roomStyle(room)" style="cursor: pointer;">
+    <a href="/room/{{room._id}}">{{room.name}}</a>
+  </li>
+</div>
+</div>

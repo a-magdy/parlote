@@ -1,16 +1,13 @@
 Meteor.subscribe("messages");
 
-Template.messages.helpers({
-  messages: function() {
-    return Messages.find({
-      room: Session.get('roomName')
-    }, {
-      sort: {
-        time: -1
-      }
-    });
-  },
-  roomName: function() {
-    return Session.get('roomName');
-  }
-});
+angular.module('parlote')
+.controller('MessagesController', ['$scope', '$meteor', '$stateParams', function($scope, $meteor, $stateParams) {
+  $scope.room = $meteor.object(Rooms, $stateParams.roomId, false).subscribe('rooms');
+
+  $meteor.autorun($scope, function() {
+    $meteor.subscribe('messages', $stateParams.roomId);
+  });
+  $scope.messages = $meteor.collection(Messages, false);
+
+  //$scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
+}]);

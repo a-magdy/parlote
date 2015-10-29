@@ -1,0 +1,9 @@
+<h4>
+  Room:
+  {{room.name}}
+</h4>
+<div class=chat id="chats">
+  <div ng-repeat="message in messages">
+    <span class="username">{{message.name}}:</span>{{message.message}}<br/>
+  </div>
+</div>

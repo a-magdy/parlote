@@ -1,21 +1,11 @@
 Meteor.subscribe("rooms");
 
-Session.setDefault("roomName", "Room1");
+angular.module('parlote')
+.controller('RoomsController', ['$scope', '$meteor', '$stateParams', function($scope, $meteor, $stateParams) {
 
-Template.rooms.helpers({
-  rooms: function() {
-    return Rooms.find();
-  }
-});
+  $scope.rooms = $meteor.collection(Rooms).subscribe('rooms');
 
-Template.rooms.events({
-  'click li': function(e) {
-    Session.set('roomName', e.target.innerText);
+  $scope.roomStyle = function(room) {
+    return $stateParams.roomId == room._id ?  {'font-weight': 'bold'} : {};
   }
-});
-
-Template.room.helpers({
-  roomstyle: function(){
-    return Session.get('roomName') == this.name ? "font-weight: bold;" : "";
-  }
-});
+}]);
