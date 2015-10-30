@@ -1,11 +1,15 @@
-Meteor.subscribe("messages");
+'use strict'
 
-angular.module('parlote')
+angular.module('parloteApp')
 .controller('MessagesController', ['$scope', '$meteor', '$stateParams', function($scope, $meteor, $stateParams) {
   $scope.room = $meteor.object(Rooms, $stateParams.roomId, false).subscribe('rooms');
 
+  $scope.options = {};
+
+  $scope.searchString = {};
+
   $meteor.autorun($scope, function() {
-    $meteor.subscribe('messages', $stateParams.roomId);
+    $meteor.subscribe('messages', $scope.options, $scope.searchString, $stateParams.roomId);
   });
   $scope.messages = $meteor.collection(Messages, false);
 
