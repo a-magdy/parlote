@@ -3,7 +3,8 @@ angular.module('parloteApp', [
    'ui.router',
    'ngMaterial',
    'angularUtils.directives.dirPagination'
- ]);
+ ])
+ .constant('ITEMS_PER_PAGE', 10);
 
 onReady = function() {
   angular.bootstrap(document, ['parloteApp']);

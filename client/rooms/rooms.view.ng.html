@@ -1,13 +1,28 @@
-<div ng-controller="RoomsController">
-  <div ng-show="$root.currentUser" class="rooms" ng-repeat="room in rooms">
-    <li ng-style="roomStyle(room)" style="cursor: pointer;">
-      <a href="/room/{{room._id}}">{{room.name}}</a>
-    </li>
-  </div>
-  <div class="hero-unit" ng-hide="$root.currentUser">
-    <h1>Welcome to Parlote</h1>
-    <p>
-      Please login!
-    </p>
+<div class="main" ng-controller="RoomsController">
+  <div layout="column">
+    <div ng-show="$root.currentUser">
+      <md-content flex-gt-sm layout-gt-sm="row">
+        <div layout-gt-sm="row" flex-gt-sm>
+          <div flex-gt-sm="50" flex-sm>
+            <md-content class="md-padding" style="padding-top:0;">
+              <div ng-repeat="room in rooms">
+                <md-card>
+                  <md-card-content>
+                    <h2 class="md-title ma-name" style=""><a href="/room/{{room._id}}">{{room.name}}</a></h2>
+                    <!-- <p class="ma-description" style="padding:0 10px;margin-bottom:35px;margin-top: 6px;">{{room.description}}</p> -->
+                  </md-card-content>
+                </md-card>
+              </div>
+            </md-content>
+          </div>
+        </div>
+      </md-content>
+    </div>
+    <div class="hero-unit" style="text-align: center;" ng-hide="$root.currentUser">
+      <h1>Welcome to Parlote</h1>
+      <p>
+        Please login!
+      </p>
+    </div>
   </div>
 </div>

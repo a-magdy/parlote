@@ -1,12 +1,39 @@
-<h4>
-  Room:
-  {{room.name}}
-</h4>
-<br/>
-<new-message></new-message>
-<br/>
-<div class=chat id="chats">
-  <div ng-repeat="message in messages">
-    <span class="username">{{message.name}}:</span>{{message.message}}<br/>
+<div class="main" layout="row">
+  <span flex=""></span>
+  <div layout="column" flex="">
+
+    <h1>Room: {{room.name}}</h1>
+
+    <div class="md-whiteframe-z1" layout-padding="">
+
+      <!-- <p>Enter a message</p> -->
+      <new-message></new-message>
+
+      <div layout="row" layout-padding="">
+        <!-- <md-input-container flex="65">
+          <label>Search</label>
+          <input type="Search" ng-model="search" placeholder="Search">
+        </md-input-container> -->
+        <!-- <md-select ng-model="orderProperty" flex="35">
+        <md-option value="1">Ascending</md-option>
+        <md-option value="-1">Descending</md-option>
+      </md-select> -->
+      </div>
+
+      <ul>
+        <li dir-paginate="m in messages | itemsPerPage: perPage" total-items="messagesCount.count"
+        current-page='page'>
+          <p>
+            {{m.message}}
+            <!-- <button ng-click="remove(m)">&times;</button> -->
+          </p>
+        </li>
+      </ul>
+
+      <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+
+      <p>Total number of messages: {{messagesCount.count}}</p>
+    </div>
   </div>
+  <span flex=""></span>
 </div>

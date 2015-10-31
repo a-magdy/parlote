@@ -1,8 +1,7 @@
-<div class="row-fluid">
-  <div class="span12 well" ng-controller="NewMessageController">
-    <form id="send" ng-show="showInput()" ng-submit="AddMessage()">
-      <input id="message" name="message" type="text">
-      <input name="sumit" type="submit" value="Submit">
-    </form>
-  </div>
+<div ng-controller="NewMessageController">
+  <md-input-container>
+    <label>Send Message</label>
+    <input id="message" name="message" type="text" ng-model="message" placeholder="Type here ...">
+  </md-input-container>
+  <input class="md-button" name="submit" type="button" ng-click="addMessage()" value="Send">
 </div>
