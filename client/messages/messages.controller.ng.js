@@ -3,10 +3,18 @@
 angular.module('parloteApp')
   .controller('MessagesController', [
     '$scope',
+    '$rootScope',
     '$meteor',
     '$stateParams',
+    '$state',
+    '$mdSidenav',
     'ITEMS_PER_PAGE',
-    function($scope, $meteor, $stateParams, itemsPerPage) {
+    function($scope, $rootScope, $meteor, $stateParams, $state, $mdSidenav, itemsPerPage) {
+      
+      $scope.toggleSidenav = function(menuId) {
+        $mdSidenav(menuId).toggle();
+      };
+
       // Get current room from $stateParams.
       $scope.room = $meteor.object(Rooms, $stateParams.roomId, false).subscribe('rooms');
 
@@ -36,6 +44,12 @@ angular.module('parloteApp')
       $scope.pageChanged = function(newPage) {
         $scope.page = newPage;
       }
+
+      $scope.$watch('currentUser', function() {
+        if (!$rootScope.currentUser) {
+          $state.go('welcome')
+        }
+      });
 
       // $scope.$watch('orderProperty', function() {
       //   if ($scope.orderProperty) {

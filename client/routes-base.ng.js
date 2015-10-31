@@ -9,7 +9,7 @@ angular.module('parloteApp')
 
     $locationProvider.html5Mode(true);
 
-    $urlRouterProvider.otherwise("/rooms");
+    $urlRouterProvider.otherwise("/welcome");
   }
 ])
 
@@ -22,7 +22,7 @@ angular.module('parloteApp')
         case 'AUTH_REQUIRED':
         case 'FORBIDDEN':
         case 'UNAUTHORIZED':
-          $state.go('rooms');
+          $state.go('welcome');
           break;
       }
     })

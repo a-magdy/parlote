@@ -1,0 +1,54 @@
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
+md-is-locked-open="$mdMedia('gt-md')">
+  <div ng-controller="RoomsController">
+    <md-toolbar class="md-tall md-hue-2">
+      <span flex></span>
+      <div layout="column" class="md-toolbar-tools-bottom inset">
+        <user-avatar></user-avatar>
+        <span></span>
+        <br/>
+        <!-- <div>{{$root.currentUser.profile.name}}</div> -->
+        <!-- <div>email@domainname.com</div> -->
+        <blaze-template name="loginButtons"></blaze-template>
+      </div>
+    </md-toolbar>
+    <md-list>
+      <!-- <blaze-template name="loginButtons"></blaze-template> -->
+      <div ng-hide="$root.currentUser">
+        <md-subheader>
+          <h3>Please login!</h3>
+        </md-subheader>
+      </div>
+      <div ng-show="$root.currentUser">
+        <md-subheader>Rooms</md-subheader>
+        <md-item ng-repeat="room in rooms">
+          <a>
+            <md-item-content md-ink-ripple layout="row" layout-align="start center">
+              <div class="inset">
+                <a href="/room/{{room._id}}">
+                  <ng-md-icon icon="group"></ng-md-icon>
+                  {{room.name}}
+                </a>
+              </div>
+            </md-item-content>
+          </a>
+        </md-item>
+      </div>
+      <!-- <md-subheader>Management</md-subheader>
+      <md-item ng-repeat="item in admin">
+        <a>
+          <md-item-content md-ink-ripple layout="row" layout-align="start center">
+            <div class="inset">
+              <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+            </div>
+            <div class="inset">{{item.title}}
+            </div>
+          </md-item-content>
+        </a>
+      </md-item> -->
+      <md-button ng-disabled="!$root.currentUser" class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event)">
+        <ng-md-icon icon="add"></ng-md-icon>
+      </md-button>
+    </md-list>
+  </div>
+</md-sidenav>

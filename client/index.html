@@ -2,10 +2,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Parlote</title>
-  <base href="/"/>
+  <base href="/" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script> -->
 </head>
 
-<body layout="column">
-  <toolbar></toolbar>
-  <md-content ui-view="" flex=""></md-content>
+<body layout="row">
+  <leftnav></leftnav>
+  <!-- <toolbar></toolbar> -->
+  <!-- <md-content ui-view="" flex=""></md-content> -->
+  <!-- <md-content ui-view=""></md-content> -->
+  <ui-view flex=""></ui-view>
+
+  <a href="https://github.com/a-magdy/parlote" target="_blank">
+    <!-- <img style="position: absolute; z-index: 999; top: 64px; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+    alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"> -->
+    <img style="position: absolute; z-index: 999; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+    alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png">
+  </a>
 </body>
