@@ -24,10 +24,9 @@ md-is-locked-open="$mdMedia('gt-md')">
         <md-item ng-repeat="room in rooms" href="/room/{{room._id}}">
           <md-divider ng-if="$first"></md-divider>
           <a>
-            <md-item-content class="md-tile-content" layout="row" layout-align="space-between"
-            layout-wrap>
+            <md-item-content class="md-tile-content" layout="row" layout-align="start" layout-wrap>
               <md-button class="md-primary" flex="100" ui-sref="room({roomId: room._id})">
-                <ng-md-icon icon="group" ></ng-md-icon>
+                <ng-md-icon icon="group"></ng-md-icon>
                 {{room.name}}
               </md-button>
             </md-item-content>

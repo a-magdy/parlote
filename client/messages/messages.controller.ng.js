@@ -18,6 +18,10 @@ angular.module('parloteApp')
       // Get current room from $stateParams.
       $scope.room = $meteor.object(Rooms, $stateParams.roomId, false).subscribe('rooms');
 
+      if(!$scope.room || $scope.room.isDeleted){
+        $state.go('welcome')
+      }
+
       $scope.page = 1;
       $scope.perPage = itemsPerPage;
 
@@ -48,7 +52,7 @@ angular.module('parloteApp')
 
       $scope.$watch('currentUser', function() {
         if (!$rootScope.currentUser) {
-          $state.go('welcome')
+          $state.go('welcome');
         }
       });
 
@@ -61,5 +65,32 @@ angular.module('parloteApp')
       // });
 
       //$scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
+
+      $scope.removeMessage = function(message){
+        if(message && message._id && message.userId == Meteor.userId()){
+          Meteor.call("removeMessage", message._id, function(error, result){
+            if(error){
+              console.log("error", error);
+            }
+            if(result){
+
+            }
+          });
+        }
+      }
+
+      $scope.removeRoom = function(){
+        if($scope.room && $scope.room.userId == Meteor.userId())
+        {
+          Meteor.call("removeRoom", $scope.room._id, function(error, result){
+            if(error){
+              console.log("error", error);
+            }
+            if(result){
+              $state.go('welcome');
+            }
+          });
+        }
+      }
     }
   ]);

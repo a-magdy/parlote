@@ -6,8 +6,12 @@
       </md-button>
       <span flex></span>
       <h3>
+        <ng-md-icon icon="group"></ng-md-icon>
         {{room.name}}
       </h3>
+      <md-button ng-show="room.userId == $root.currentUser._id" ng-click="removeRoom()" flex="1" aria-label="X">
+        <ng-md-icon icon="delete"></ng-md-icon>
+      </md-button>
       <span flex></span>
     </div>
   </md-toolbar>
@@ -19,15 +23,18 @@
             <md-list>
               <md-item dir-paginate="m in messages | itemsPerPage: perPage" total-items="messagesCount.count"
               current-page='page'>
-                <md-item-content>
-                  <div class="md-tile-left inset" hide-sm>
+                <md-item-content layout="row">
+                  <div class="md-tile-left inset" flex="">
                     <p ng-hide="m.isImage">
-                      <div ng-bind-html="m.name + ' : ' + m.message | emoticons:{linkTarget:'_blank'}">
+                      <div ng-bind-html="m.username + ' : ' + m.message | emoticons:{linkTarget:'_blank'}">
                       </div>
-                      <!-- <div ng-bind-html="m.name + ' : ' + m.message | emoji">
-                      </div> -->
                     </p>
                     <img ng-show="m.isImage" flex="100" ng-src="{{ m.imageData }}" />
+                  </div>
+                  <div ng-show="$root.currentUser._id == m.userId" class="md-tile-right inset">
+                    <md-button ng-click="removeMessage(m)">
+                      <ng-md-icon icon="delete"></ng-md-icon>
+                    </md-button>
                   </div>
                   <div class="md-tile-content">
                     <!-- <h6>{{m.createdAt}}</h6> -->

@@ -6,7 +6,8 @@ Meteor.publish('messages', function(options, searchString, roomId) {
     //   '$regex': '.*' + (searchString || '') + '.*',
     //   '$options': 'i'
     // },
-    room: roomId
+    room: roomId,
+    isDeleted: {$ne: true}
   };
 
   Counts.publish(this, 'numberOfMessagesIn_' + roomId, Messages.find(where), {

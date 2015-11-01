@@ -2,12 +2,13 @@
   <md-input-container flex="80">
     <label>Send Message</label>
     <input ng-model="message" key-enter="addMessage()">
-    <!-- <div ng-bind-html="message | emoticons:{linkTarget:'_blank'}">
-      </div> -->
   </md-input-container>
   <md-input-container flex="13">
     <md-item>
-      <md-button class="md-raised" ng-click="sendPicture()">Cam</md-button>
+      <md-button class="md-raised" ng-click="sendPicture()" aria-label="Cam">
+        <!-- Cam -->
+        <ng-md-icon icon="camera"></ng-md-icon>
+      </md-button>
     </md-item>
   </md-input-container>
 </md-content>

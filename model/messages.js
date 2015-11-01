@@ -4,6 +4,9 @@ Messages.allow({
   insert: function(userId, message) {
     message.createdAt = new Date();
     return userId !== null;
+  },
+  update: function(userId, message, fields, modifier){
+    return message.userId === userId;
   }
 });
 
@@ -12,7 +15,7 @@ Messages.deny({
     return userId === null;
   },
   update: function(userId, message, fields, modifier) {
-    return true;
+   return message.userId !== userId;
   },
   remove: function(userId, message) {
     return true;

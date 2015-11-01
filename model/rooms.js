@@ -5,6 +5,9 @@ Rooms.allow({
     room.createdAt = new Date();
 
     return userId !== null;
+  },
+  update: function(userId, room, fields, modifier) {
+    return room.userId === userId;
   }
 });
 
@@ -13,7 +16,7 @@ Rooms.deny({
     return userId === null;
   },
   update: function(userId, room, fields, modifier) {
-    return true;
+    return room.userId !== userId;
   },
   remove: function(userId, room) {
     return true;

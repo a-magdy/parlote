@@ -6,6 +6,7 @@ Meteor.publish('rooms', function(options, searchString) {
     //   '$regex': '.*' + (searchString || '') + '.*',
     //   '$options': 'i'
     // }
+    isDeleted: {$ne: true}
   };
 
   Counts.publish(this, 'numberOfRooms', Rooms.find(where), {

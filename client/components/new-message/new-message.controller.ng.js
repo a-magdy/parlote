@@ -14,53 +14,47 @@ angular.module('parloteApp')
       }
 
       $scope.addMessage = function() {
+
         if (!$rootScope.currentUser) return;
 
-        var loggedInUser = Meteor.user();
+        let loggedInUser = Meteor.user();
 
-        var roomId = $stateParams.roomId;
+        if (!s.isBlank($scope.message) && $scope.room) {
 
-        if (s.isBlank($scope.message) == false && s.isBlank(roomId) == false) {
+          let username = (loggedInUser.profile && loggedInUser.profile.name) || (loggedInUser.username);
 
-          var username = (loggedInUser.profile && loggedInUser.profile.name) || (loggedInUser.username);
-
-          Messages.insert({
-            userId: Meteor.userId(),
-            name: username,
-            room: roomId,
-            message: $scope.message,
-            isImage: false,
-            imageData: null
+          Meteor.call("addMessage", {
+            room: $stateParams.roomId,
+            message: $scope.message
+          }, function(error, result) {
+            if (error) {
+              console.log("error", error);
+            }
+            if (result) {
+              $scope.message = '';
+            }
           });
-
-          $scope.message = '';
         }
       }
 
       $scope.sendPicture = function() {
         $meteor.getPicture().then(function(imageData) {
-          $scope.imageData = imageData;
 
           if (!$rootScope.currentUser) return;
 
-          var loggedInUser = Meteor.user();
+          if (!s.isBlank(imageData) && $scope.room) {
 
-          var roomId = $stateParams.roomId;
-
-          if (!s.isBlank($scope.imageData) && $scope.room) {
-
-            var username = (loggedInUser.profile && loggedInUser.profile.name) || (loggedInUser.username);
-
-            Messages.insert({
-              userId: Meteor.userId(),
-              name: username,
-              room: roomId,
-              message: '',
+            Meteor.call("addMessage", {
+              room: $stateParams.roomId,
               isImage: true,
               imageData: imageData
+            }, function(error, result) {
+              if (error) {
+                console.log("error", error);
+              }
+              if (result) {
+              }
             });
-
-            $scope.message = '';
           }
         });
       };
