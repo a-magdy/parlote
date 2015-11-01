@@ -10,7 +10,7 @@ angular.module('parloteApp')
     '$mdSidenav',
     'ITEMS_PER_PAGE',
     function($scope, $rootScope, $meteor, $stateParams, $state, $mdSidenav, itemsPerPage) {
-      
+
       $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
       };
@@ -21,10 +21,11 @@ angular.module('parloteApp')
       $scope.page = 1;
       $scope.perPage = itemsPerPage;
 
-      // $scope.sort = {
-      //   name_sort: 1
-      // };
-      // $scope.orderProperty = '1';
+      $scope.sort = {
+        //name_sort: 1
+        createdAt: -1
+      };
+      $scope.orderProperty = '-1';
 
       $scope.messages = $meteor.collection(Messages, false);
 
@@ -32,7 +33,7 @@ angular.module('parloteApp')
         $meteor.subscribe('messages', {
             limit: parseInt($scope.getReactively('perPage')),
             skip: parseInt(($scope.getReactively('page') - 1)) * $scope.getReactively('perPage'),
-            //sort: $scope.getReactively('sort')
+            sort: $scope.getReactively('sort')
           }, $scope.getReactively('search'), $stateParams.roomId)
           .then(function() {
             $scope.messagesCount = $meteor.object(Counts, 'numberOfMessagesIn_' + $stateParams.roomId, false);
@@ -54,10 +55,10 @@ angular.module('parloteApp')
       // $scope.$watch('orderProperty', function() {
       //   if ($scope.orderProperty) {
       //     $scope.sort = {
-      //       name_sort: parseInt($scope.orderProperty)
+      //       createdAt: parseInt($scope.orderProperty)
       //     };
       //   }
-      // })
+      // });
 
       //$scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
     }

@@ -1,15 +1,10 @@
-<div layout="row" class="relative" layout-fill role="main">
-  <span flex></span>
-  <md-content flex md-scroll-y>
-    <md-item ng-controller="NewMessageController">
-      <md-item-content>
-        <div class="md-tile inset">
-          <input id="message" name="message" type="text" ng-model="message" placeholder="Type here ...">
-          <input class="md-button" name="submit" type="button" ng-click="addMessage()" value="Send">
-        </div>
-        <!-- <div class="md-tile-content"></div> -->
-      </md-item-content>
-    </md-item>
+<div>
+  <md-content class="md-padding pad-ver-0" ng-controller="NewMessageController">
+    <md-input-container>
+      <label>Send Message</label>
+      <input ng-model="message" key-enter="addMessage()">
+      <!-- <div ng-bind-html="message | emoticons:{linkTarget:'_blank'}">
+      </div> -->
+    </md-input-container>
   </md-content>
-  <span flex></span>
 </div>

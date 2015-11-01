@@ -11,10 +11,11 @@
     "tests"
   ],
   "dependencies": {
+    "ng-emoticons": "~2.0.1"
   },
   "overrides": {
     "angular": {
-      "main": [] 
+      "main": []
     }
   }
 }

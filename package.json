@@ -1,0 +1,28 @@
+{
+  "name": "parlote",
+  "version": "1.0.0",
+  "description": "Parlote is a chatting application built with Meteor and Angular",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-magdy/parlote.git"
+  },
+  "keywords": [
+    "chat",
+    "meteor",
+    "angular",
+    "material",
+    "design",
+    "parlote"
+  ],
+  "author": "Ahmad Magdy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/a-magdy/parlote/issues"
+  },
+  "homepage": "https://github.com/a-magdy/parlote#readme",
+  "dependencies": {}
+}
