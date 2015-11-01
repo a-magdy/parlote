@@ -5,6 +5,7 @@ angular.module('parloteApp', [
   //'ngMdIcons',  // //cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js
   'angularUtils.directives.dirPagination',
   "ngEmoticons"
+  //"dbaq.emoji"
 ])
 
 .constant('ITEMS_PER_PAGE', 8);

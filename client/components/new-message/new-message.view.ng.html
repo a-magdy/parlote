@@ -1,10 +1,13 @@
-<div>
-  <md-content class="md-padding pad-ver-0" ng-controller="NewMessageController">
-    <md-input-container>
-      <label>Send Message</label>
-      <input ng-model="message" key-enter="addMessage()">
-      <!-- <div ng-bind-html="message | emoticons:{linkTarget:'_blank'}">
+<md-content layout="row" class="md-padding pad-ver-0" ng-controller="NewMessageController">
+  <md-input-container flex="80">
+    <label>Send Message</label>
+    <input ng-model="message" key-enter="addMessage()">
+    <!-- <div ng-bind-html="message | emoticons:{linkTarget:'_blank'}">
       </div> -->
-    </md-input-container>
-  </md-content>
-</div>
+  </md-input-container>
+  <md-input-container flex="13">
+    <md-item>
+      <md-button class="md-raised" ng-click="sendPicture()">Cam</md-button>
+    </md-item>
+  </md-input-container>
+</md-content>

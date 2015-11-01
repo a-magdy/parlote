@@ -20,33 +20,23 @@ md-is-locked-open="$mdMedia('gt-md')">
         </md-subheader>
       </div>
       <div ng-show="$root.currentUser">
-        <md-subheader>Rooms</md-subheader>
-        <md-item ng-repeat="room in rooms">
+        <md-subheader>Select a chat room</md-subheader>
+        <md-item ng-repeat="room in rooms" href="/room/{{room._id}}">
+          <md-divider ng-if="$first"></md-divider>
           <a>
-            <md-item-content md-ink-ripple layout="row" layout-align="start center">
-              <div class="inset">
-                <a href="/room/{{room._id}}">
-                  <ng-md-icon icon="group"></ng-md-icon>
-                  {{room.name}}
-                </a>
-              </div>
+            <md-item-content class="md-tile-content" layout="row" layout-align="space-between"
+            layout-wrap>
+              <md-button class="md-primary" flex="100" ui-sref="room({roomId: room._id})">
+                <ng-md-icon icon="group" ></ng-md-icon>
+                {{room.name}}
+              </md-button>
             </md-item-content>
           </a>
+          <md-divider ng-if="$last"></md-divider>
         </md-item>
       </div>
-      <!-- <md-subheader>Management</md-subheader>
-      <md-item ng-repeat="item in admin">
-        <a>
-          <md-item-content md-ink-ripple layout="row" layout-align="start center">
-            <div class="inset">
-              <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
-            </div>
-            <div class="inset">{{item.title}}
-            </div>
-          </md-item-content>
-        </a>
-      </md-item> -->
-      <md-button ng-disabled="!$root.currentUser" class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event)">
+      <md-button ng-disabled="!$root.currentUser" class="md-fab md-fab-bottom-right" aria-label="Add"
+      ng-click="showAdd($event)">
         <ng-md-icon icon="add"></ng-md-icon>
       </md-button>
     </md-list>

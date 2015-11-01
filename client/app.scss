@@ -3,6 +3,7 @@ $gray: #eee;
 md-content.md-default-theme {
   background-color: $gray;
 }
+
 md-card {
   background-color: #fff;
   h2:first-of-type {
@@ -34,9 +35,16 @@ md-sidenav {
   fill: #737373;
   ng-md-icon {
     position: relative;
-    top: 5px; // adjust for svg viewbox
+    // Fixing the issue of misplaced icon in md-icon
+    //top: 5px; // adjust for svg viewbox
   }
 }
+
+.md-button.md-fab {
+    z-index: 20;
+    line-height: 66px;
+  }
+
 .user-avatar {
   border-radius: 99%;
 }
