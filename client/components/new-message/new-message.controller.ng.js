@@ -17,11 +17,11 @@ angular.module('parloteApp')
 
         if (!$rootScope.currentUser) return;
 
-        let loggedInUser = Meteor.user();
+        var loggedInUser = Meteor.user();
 
         if (!s.isBlank($scope.message) && $scope.room) {
 
-          let username = (loggedInUser.profile && loggedInUser.profile.name) || (loggedInUser.username);
+          var username = (loggedInUser.profile && loggedInUser.profile.name) || (loggedInUser.username);
 
           Meteor.call("addMessage", {
             room: $stateParams.roomId,

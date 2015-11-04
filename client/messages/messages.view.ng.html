@@ -9,7 +9,8 @@
         <ng-md-icon icon="group"></ng-md-icon>
         {{room.name}}
       </h3>
-      <md-button ng-show="room.userId == $root.currentUser._id" ng-click="removeRoom()" flex="1" aria-label="X">
+      <md-button ng-show="room.userId == $root.currentUser._id" ng-click="removeRoom()"
+      flex="1" aria-label="X">
         <ng-md-icon icon="delete"></ng-md-icon>
       </md-button>
       <span flex></span>
@@ -21,24 +22,48 @@
         <md-card flex-gt-sm="90" flex-gt-md="80">
           <md-card-content>
             <md-list>
-              <md-item dir-paginate="m in messages | itemsPerPage: perPage" total-items="messagesCount.count"
+              <md-item dir-paginate="m in messages | orderBy: 'createdAt' | itemsPerPage: perPage" total-items="messagesCount.count"
               current-page='page'>
                 <md-item-content layout="row">
                   <div class="md-tile-left inset" flex="">
                     <p ng-hide="m.isImage">
+                      <!-- <div ng-bind-html="m.userId + ' : ' + m.message | emoticons:{linkTarget:'_blank'}">
+                      </div> -->
                       <div ng-bind-html="m.username + ' : ' + m.message | emoticons:{linkTarget:'_blank'}">
                       </div>
                     </p>
                     <img ng-show="m.isImage" flex="100" ng-src="{{ m.imageData }}" />
                   </div>
-                  <div ng-show="$root.currentUser._id == m.userId" class="md-tile-right inset">
+                  <div class="md-tile-content">
+                    <p>
+                      <!-- {{moment(m.createdAt, 'M/d/yyyy')}} -->
+                      {{getMessageDate(m)}}
+                    </p>
+                  </div>
+                  <div ng-show="$root.currentUser._id == m.userId" class="md-tile-content">
                     <md-button ng-click="removeMessage(m)">
                       <ng-md-icon icon="delete"></ng-md-icon>
                     </md-button>
                   </div>
-                  <div class="md-tile-content">
-                    <!-- <h6>{{m.createdAt}}</h6> -->
+                  <!-- <div ng-hide="$root.currentUser._id == m.userId" class="md-tile-content">
+                    <md-button ng-click="reportMessage(m)">
+                      <ng-md-icon icon="report"></ng-md-icon>
+                    </md-button>
+                  </div> -->
+
+
+                  <!-- <div ng-show="$root.currentUser._id == m.userId" class="md-tile-right inset">
+                    <md-button ng-click="removeMessage(m)">
+                      <ng-md-icon icon="delete"></ng-md-icon>
+                    </md-button>
                   </div>
+                  <div ng-hide="$root.currentUser._id == m.userId" class="md-tile-right inset">
+                    <md-button>
+                      <ng-md-icon icon="report"></ng-md-icon>
+                    </md-button>
+                  </div> -->
+
+
                 </md-item-content>
                 <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
                 <md-divider hide-gt-sm ng-if="!$last"></md-divider>

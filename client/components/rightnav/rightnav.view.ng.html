@@ -1,4 +1,4 @@
-<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
+<md-sidenav layout="column" class="md-sidenav-right md-whiteframe-z2" md-component-id="right"
 md-is-locked-open="$mdMedia('gt-md')">
   <div ng-controller="RoomsController">
     <md-toolbar class="md-tall md-hue-2">
@@ -7,13 +7,10 @@ md-is-locked-open="$mdMedia('gt-md')">
         <user-avatar></user-avatar>
         <span></span>
         <br/>
-        <!-- <div>{{$root.currentUser.profile.name}}</div> -->
-        <!-- <div>email@domainname.com</div> -->
         <blaze-template name="loginButtons"></blaze-template>
       </div>
     </md-toolbar>
     <md-list>
-      <!-- <blaze-template name="loginButtons"></blaze-template> -->
       <div ng-hide="$root.currentUser">
         <md-subheader>
           <h3>Please login!</h3>

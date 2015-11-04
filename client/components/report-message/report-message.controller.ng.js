@@ -1,10 +1,11 @@
-NewRoomController = [
+ReportMessageController = [
   '$scope',
   '$mdDialog',
   function($scope, $mdDialog) {
 
-    $scope.room = {
-      name: '',
+    $scope.report = {
+      reason: '',
+      typeId: '',
       category: '',
       description: ''
     };
@@ -18,11 +19,11 @@ NewRoomController = [
     };
 
     $scope.save = function() {
-      if (!$scope.room || s.isBlank($scope.room.name)) {
+      if (!$scope.report || s.isBlank($scope.report.reason)) {
         return;
       }
 
-      $mdDialog.hide($scope.room);
+      $mdDialog.hide($scope.report);
     };
   }
 ]

@@ -3,15 +3,15 @@
 Meteor.methods({
   addMessage: function(message) {
 
-    let success = false;
+    var success = false;
 
     if (Meteor.userId()) {
 
-      let room = Rooms.findOne(message.room);
+      var room = Rooms.findOne(message.room);
 
       if (room) {
 
-        let loggedInUser = Meteor.user();
+        var loggedInUser = Meteor.user();
 
         message.userId = Meteor.userId();
         message.username = (loggedInUser.profile && loggedInUser.profile.name) || (loggedInUser.username);
@@ -33,11 +33,11 @@ Meteor.methods({
   },
 
   removeMessage: function(messageId) {
-    let result = false;
+    var result = false;
 
     if (Meteor.userId()) {
 
-      let message = Messages.findOne(messageId);
+      var message = Messages.findOne(messageId);
 
       if (message && message.userId == Meteor.userId() && !message.isDeleted) {
         Messages.update({

@@ -3,7 +3,7 @@
 Meteor.methods({
   addRoom: function(room) {
 
-    let result = false;
+    var result = false;
 
     if (Meteor.userId() && room && !s.isBlank(room.name)) {
 
@@ -11,7 +11,7 @@ Meteor.methods({
           name: room.name
         }).count() === 0) {
 
-        let loggedInUser = Meteor.user();
+        var loggedInUser = Meteor.user();
 
         room.userId = loggedInUser._id;
         room.username = (loggedInUser.profile && loggedInUser.profile.name) || (loggedInUser.username);
@@ -28,9 +28,9 @@ Meteor.methods({
 
   removeRoom: function(roomId) {
 
-    let result = false;
+    var result = false;
 
-    let room = Rooms.findOne(roomId);
+    var room = Rooms.findOne(roomId);
 
     if (room && room.userId == Meteor.userId() && !room.isDeleted) {
       Rooms.update({
