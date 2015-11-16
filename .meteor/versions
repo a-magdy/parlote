@@ -7,7 +7,9 @@ accounts-password@1.1.4
 accounts-twitter@1.0.6
 accounts-ui@1.1.6
 accounts-ui-unstyled@1.1.8
-angular@1.0.3
+angular@1.2.2
+angular-meteor-data@0.0.6
+angular-templates@0.0.1
 angular:angular@1.4.7
 angular:angular-animate@1.4.7
 angular:angular-aria@1.4.7
@@ -38,6 +40,7 @@ ddp-rate-limiter@1.0.0
 ddp-server@1.2.2
 deps@1.0.9
 diff-sequence@1.0.1
+dotansimha:accounts-ui-angular@0.0.2
 ecmascript@0.1.6
 ecmascript-runtime@0.2.6
 ejson@1.0.7
@@ -80,7 +83,7 @@ oauth1@1.1.5
 oauth2@1.1.5
 observe-sequence@1.0.7
 ordered-dict@1.0.4
-planettraining:material-design-icons@2.0.0
+pbastowski:angular-babel@1.0.4
 promise@0.5.1
 random@1.0.5
 rate-limit@1.0.0
@@ -104,7 +107,6 @@ twitter@1.1.5
 ui@1.0.8
 underscore@1.0.4
 underscorestring:underscore.string@3.2.2
-urigo:angular-blaze-template@0.0.1
 url@1.0.5
 webapp@1.2.3
 webapp-hashing@1.0.5

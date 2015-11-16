@@ -99,7 +99,7 @@ angular.module('parloteApp')
 
       $scope.showReportMessageDialog = function(ev) {
         $mdDialog.show({
-            templateUrl: 'client/components/report-message/report-message.view.ng.html',
+            templateUrl: 'client/components/report-message/report-message.view.html',
             targetEvent: ev,
             controller: ReportMessageController
           })

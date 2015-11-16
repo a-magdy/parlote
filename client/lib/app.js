@@ -1,5 +1,6 @@
 angular.module('parloteApp', [
   'angular-meteor',
+  'accounts.ui',
   'ui.router',
   'ngMaterial',
   //'ngMdIcons',  // //cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js

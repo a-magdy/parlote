@@ -5,7 +5,7 @@ angular.module('parloteApp')
     $stateProvider
       .state('welcome', {
         url: '/welcome',
-        templateUrl: 'client/welcome/welcome.view.ng.html',
+        templateUrl: 'client/welcome/welcome.view.html',
         controller: 'WelcomeController'
       });
   });

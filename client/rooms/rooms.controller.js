@@ -18,7 +18,7 @@ angular.module('parloteApp')
 
       $scope.showAdd = function(ev) {
         $mdDialog.show({
-            templateUrl: 'client/components/new-room/new-room.view.ng.html',
+            templateUrl: 'client/components/new-room/new-room.view.html',
             targetEvent: ev,
             controller: NewRoomController
           })

@@ -47,22 +47,7 @@ angular.module('parloteApp')
     });
 
     $mdIconProvider.icon('user', 'assets/images/user.svg', 64);
-
-    // var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
-    //   'contrastDefaultColor': 'light',
-    //   'contrastDarkColors': ['50'],
-    //   '50': 'ffffff'
-    // });
-    // $mdThemingProvider.definePalette('customBlue', customBlueMap);
-    // $mdThemingProvider.theme('default')
-    //   .primaryPalette('customBlue', {
-    //     'default': '500',
-    //     'hue-1': '50'
-    //   })
-    //   .accentPalette('pink');
-    // $mdThemingProvider.theme('input', 'default')
-    //   .primaryPalette('grey')
-
+    
     $mdIconProvider
       .iconSet("social", "/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-social.svg")
       .iconSet("action", "/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-action.svg")

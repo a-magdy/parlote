@@ -5,7 +5,7 @@ angular.module('parloteApp')
     $stateProvider
       .state('room', {
         url: '/room/:roomId',
-        templateUrl: 'client/messages/messages.view.ng.html',
+        templateUrl: 'client/messages/messages.view.html',
         controller: 'MessagesController',
         resolve: {
           "currentUser": function($meteor) {
