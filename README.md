@@ -1,6 +1,6 @@
-<a href="http://ec2-52-30-64-165.eu-west-1.compute.amazonaws.com/">
+<a href="http://magdy.xyz:8000/">
 <img src="http://angular-meteor.com/images/logo-large.png" width="60" height="60" />
-</a>  [Parlote](http://ec2-52-30-64-165.eu-west-1.compute.amazonaws.com/)
+</a>  [Parlote](http://magdy.xyz:8000/)
 
 ======================================================
 
@@ -11,7 +11,10 @@
 ### Meteor Project
 1. Install [Meteor](http://docs.meteor.com/#quickstart) `$ curl https://install.meteor.com | /bin/sh`
 2. Clone this repo using the command: git clone https://github.com/a-magdy/parlote.git
-3. Step into the folder, and type meteor, to start the app.
+3. Step into the folder using: cd parlote
+4. Install bower components using: bower install
+5. Start the app using: meteor.
+6. The app should be running now on localhost:3000
 
 ## Resources
 - [Getting started tutorial](https://angular-meteor.com/tutorial)
